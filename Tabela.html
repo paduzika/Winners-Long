@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Jogadores</title>
+</head>
+<body>
+    <h1>Lista de Jogadores</h1>
+
+    <table>
+        <tr>
+            <th>Jogador</th>
+            <th>Gols</th>
+            <th>Assistências</th>
+            <th>Gols Sofridos</th>
+            <th>Pontuação</th>
+        </tr>
+        <tr>
+            <td>Neymar</td>
+            <td class="goals">10</td>
+            <td class="assists">5</td>
+            <td class="goals-conceded">2</td>
+            <td class="score">0</td>
+        </tr>
+        <tr>
+            <td>Messi</td>
+            <td class="goals">12</td>
+            <td class="assists">8</td>
+            <td class="goals-conceded">3</td>
+            <td class="score">0</td>
+        </tr>
+        <tr>
+            <td>Ronaldo</td>
+            <td class="goals">8</td>
+            <td class="assists">4</td>
+            <td class="goals-conceded">5</td>
+            <td class="score">0</td>
+        </tr>
+    </table>
+
+    <script>
+        // Calcular a pontuação com base nas estatísticas e atribuí-la à coluna de Pontuação
+        const rows = document.querySelectorAll('tr');
+
+        rows.forEach((row, index) => {
+            if (index > 0) {
+                const goals = parseInt(row.querySelector('.goals').textContent);
+                const assists = parseInt(row.querySelector('.assists').textContent);
+                const goalsConceded = parseInt(row.querySelector('.goals-conceded').textContent);
+
+                const score = goals * 3 + assists * 2 - goalsConceded;
+                row.querySelector('.score').textContent = score;
+            }
+        });
+    </script>
+</body>
+</html>
